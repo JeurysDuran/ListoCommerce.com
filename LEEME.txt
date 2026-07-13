@@ -1,0 +1,29 @@
+CÓMO USAR ESTO
+==============
+
+Estructura:
+  index.html          -> la página completa
+  css/style.css        -> todos los estilos
+  js/script.js          -> menú móvil, selector cliente/admin, carruseles
+  img/logo1.png        -> LOGO TEMPORAL. Reemplázalo con tu img/logo1.png real (mismo nombre, mismo lugar).
+
+Qué es de ejemplo y debes cambiar:
+  - Todas las imágenes con placehold.co (problema, solución) -> tus fotos/videos reales.
+  - El video de la sección "Producto" (video/demo.mp4) -> tu video de demo real, o cámbialo por una imagen si prefieres.
+  - Los textos de "Clientes" (testimonios) -> comentarios reales de tus clientes.
+  - El número de WhatsApp (https://wa.me/18090000000) y el correo (mailto:tucorreo@ejemplo.com) en la sección Contacto.
+  - El enlace "Ver demo" (demo/index.html) -> apunta a la carpeta donde subas la versión demo de tu plataforma (sin base de datos), cuando la creemos.
+
+Cómo agregar más imágenes a un carrusel:
+  Dentro de cada <div class="carousel-track"> solo agrega o quita bloques como:
+    <div class="carousel-slide">
+      <img src="ruta-a-tu-imagen.jpg" alt="Descripción">
+    </div>
+  El carrusel (flechas + indicadores) se ajusta solo, no hay que tocar el JS.
+
+El selector "Cliente / Admin" del header es solo visual por ahora (guarda tu elección en el navegador). 
+Cuando conectemos la lógica real, se puede usar document.body.dataset.mode ("cliente" o "admin")
+para mostrar u ocultar bloques marcados con data-admin-only / data-client-only.
+
+Esto es 100% HTML/CSS/JS estático, así que se puede subir directo a Netlify (o cualquier hosting gratuito)
+arrastrando la carpeta completa.
