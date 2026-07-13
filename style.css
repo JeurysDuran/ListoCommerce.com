@@ -659,14 +659,22 @@ strong {
     align-self: flex-start;
 }
 
-.footer-inner p {
-    font-size: 13px;
-    color: var(--muted);
-    margin: 0;
+.btn2 {
+    background-color: #007bff;
 }
 
 .section-title {
     color: #10254c;
+}
+
+.lg {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    align-self: center;
+    justify-self: center;
 }
 
 
