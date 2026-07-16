@@ -170,7 +170,7 @@ a {
 
 .brand-logo {
     height: 72px;
-    width: 200px;
+    width: 190px;
     align-self: flex-start;
 }
 
@@ -665,6 +665,87 @@ strong {
 
 .section-title {
     color: #10254c;
+}
+
+
+/* Asegura que la pista del carrusel use flexbox para poner los slides en fila */
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    /* Suaviza el movimiento */
+}
+
+
+/* Cada slide debe ocupar el 100% del ancho del contenedor visible y no achicarse */
+
+.carousel-slide {
+    min-width: 100%;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    /* Espaciado entre el video y el botón */
+}
+
+
+/* ==========================================================================
+   DEMO - CORRECCIÓN DE VIDEO RESPONSIVO (PC Y MÓVIL)
+   ========================================================================== */
+
+.demo-media {
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    margin-bottom: 8px;
+    background: #000000;
+    /* Asegura un fondo neutro en la carga */
+    width: 100%;
+    max-width: 800px;
+    /* Evita que el video sea gigante en PC */
+    margin-left: auto;
+    /* Centra el contenedor del video */
+    margin-right: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.demo-media video {
+    width: 100%;
+    height: auto;
+    max-height: 700px;
+    /* Altura máxima perfecta para pantallas de laptop/escritorio */
+    object-fit: cover;
+    /* ¡CLAVE! Elimina las franjas negras recortando sutilmente los bordes */
+    display: block;
+}
+
+
+/* Ajuste específico para el carrusel de demos */
+
+.carousel-slide {
+    min-width: 100%;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centra el contenido en el slide */
+    gap: 1rem;
+}
+
+
+/* Opcional: reducir margen de los botones debajo del video para mejor armonía */
+
+.slide-footer .btn {
+    margin-top: 10px !important;
+}
+
+
+/* Estilo opcional para centrar el botón debajo del video */
+
+.slide-footer {
+    text-align: center;
+    width: 100%;
 }
 
 .lg {

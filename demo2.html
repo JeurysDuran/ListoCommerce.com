@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo interactiva — Mi Tienda</title>
+    <meta name="description" content="Prueba la plataforma con productos de ejemplo. Nada de lo que hagas aquí se guarda en una base de datos real.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="demo2.css">
+</head>
+
+<body>
+
+    <!-- Aviso de demo -->
+    <div class="demo-banner">
+        Estás en el <strong>modo demo</strong>. Los productos que agregues, edites o borres solo existen en esta pestaña — al recargar la página todo vuelve al catálogo de ejemplo.
+    </div>
+
+    <!-- ══ TICKER ══ -->
+    <div class="ticker-bar">
+        <div class="ticker-inner">
+            <span>Envío gratis en compras mayores a $50</span>
+            <span>Nuevas colecciones disponibles</span>
+            <span>Hasta 50% de descuento en ofertas seleccionadas</span>
+            <span>Compra segura garantizada</span>
+            <span>Envío gratis en compras mayores a $50</span>
+            <span>Nuevas colecciones disponibles</span>
+            <span>Hasta 50% de descuento en ofertas seleccionadas</span>
+            <span>Compra segura garantizada</span>
+        </div>
+    </div>
+
+    <!-- ══ NAVBAR ══ -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <a href="../index.html" class="navbar-brand">Mi<span>Tienda</span></a>
+        </div>
+
+        <div class="navbar-center">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Buscar productos..." autocomplete="off">
+                <button type="button" id="searchBtn"><i class="fas fa-search"></i></button>
+                <div id="searchDropdown"></div>
+            </div>
+        </div>
+
+        <div class="navbar-right">
+            <div class="mode-switch" id="modeSwitch" role="group" aria-label="Modo de vista">
+                <button type="button" class="mode-btn is-active" data-mode="cliente">Cliente</button>
+                <button type="button" class="mode-btn" data-mode="admin">Admin</button>
+            </div>
+
+            <button type="button" class="nav-action-btn" id="favToggle" aria-label="Ver favoritos">
+      <i class="fas fa-heart"></i>
+      <span class="cart-badge" id="favCount">0</span>
+    </button>
+            <button type="button" class="nav-action-btn" id="cartToggle" aria-label="Ver carrito">
+      <i class="fas fa-shopping-bag"></i>
+      <span class="cart-badge" id="cartCount">0</span>
+    </button>
+
+            <button type="button" class="btn-admin-tool" id="categoriesBtn">Categorías</button>
+            <button type="button" class="btn-admin-tool" id="analyticsBtn">Analíticas</button>
+            <button type="button" class="btn-add-product" id="addProductBtn"><i class="fas fa-plus"></i> Producto</button>
+        </div>
+    </div>
+
+    <!-- Buscador móvil -->
+    <div class="mob-search-wrap">
+        <div class="mob-search-inner">
+            <i class="fas fa-search mob-search-icon"></i>
+            <input type="text" id="searchInputMobile" placeholder="Buscar productos..." autocomplete="off" class="mob-search-input">
+            <div id="searchDropdownMobile" class="mob-search-dropdown"></div>
+        </div>
+    </div>
+
+    <!-- ══ CATEGORY FILTERS ══ -->
+    <div class="category-filters" id="filters">
+        <button type="button" class="filter-btn is-active" data-cat="todos">Todo</button>
+    </div>
+
+    <!-- ══ HERO ══ -->
+    <div class="hero-wrapper">
+        <div class="hero-slide">
+            <img src="imgdemo/bannerdemo2.jpg" alt="Hero">
+            <div class="hero-overlay">
+                <div class="hero-eyebrow">Nueva Colección</div>
+                <div class="hero-titulo">Mi Tienda</div>
+                <div class="hero-subtitulo">Reemplaza este banner con tus propias fotos o video desde el panel admin.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ PRODUCTOS ══ -->
+    <div class="section-header">
+        <h2 class="section-title" id="sectionTitle">Todos los Productos</h2>
+        <span class="section-subtitle" id="sectionSubtitle">Colección completa</span>
+    </div>
+    <div class="container">
+        <div class="productos-grid" id="productGrid"></div>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 Mi Tienda Online — Demo interactiva, ningún dato se guarda en un servidor</p>
+    </div>
+
+    <!-- ============ MODAL: DETALLE DE PRODUCTO ============ -->
+    <div class="overlay" id="detailOverlay">
+        <div class="panel panel--detail" id="detailPanel"></div>
+    </div>
+
+    <!-- ============ MODAL: FORMULARIO ADMIN (producto) ============ -->
+    <div class="overlay" id="formOverlay">
+        <div class="panel panel--form">
+            <div class="panel-head">
+                <h3 id="formTitle">Agregar producto</h3>
+                <button type="button" class="close-btn" data-close-form>&times;</button>
+            </div>
+            <form id="productForm" class="product-form">
+                <input type="hidden" name="id">
+
+                <label>Imagen del producto
+        <div class="upload-area" id="uploadArea">
+          <input type="file" accept="image/*" id="fileInput" name="imagenArchivo">
+          <span class="upload-text">Arrastra una imagen o haz clic para elegirla</span>
+        </div>
+        <div class="preview-wrap" id="previewWrap">
+          <img id="imagePreview" src="#" alt="Vista previa">
+          <button type="button" class="preview-clear" id="previewClear">&times;</button>
+        </div>
+        <input type="hidden" name="imagenData">
+      </label>
+
+                <label>Nombre<input type="text" name="nombre" required></label>
+                <label>Precio (RD$)<input type="number" name="precio" step="0.01" required></label>
+
+                <label>Categoría
+        <select name="categoria" id="categoriaSelect" required></select>
+      </label>
+
+                <label>Stock<input type="number" name="stock" value="10"></label>
+                <label>Tallas (separadas por coma)<input type="text" name="tallas" placeholder="S,M,L,XL"></label>
+                <label>Colores (separados por coma)<input type="text" name="colores" placeholder="Negro,Blanco"></label>
+
+                <div class="desc-toggle" id="descToggle">
+                    <div class="toggle-switch" id="descSwitch"></div>
+                    <span>Activar descuento</span>
+                </div>
+                <label class="desc-field" id="descField" style="display:none;">
+        Descuento (%)
+        <input type="number" name="descuento" min="0" max="90" placeholder="0">
+      </label>
+
+                <button type="submit" class="btn btn-primary">Guardar producto</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ============ PANEL: CATEGORÍAS ============ -->
+    <div class="overlay" id="categoriesOverlay">
+        <div class="panel panel--form">
+            <div class="panel-head">
+                <h3>Categorías</h3>
+                <button type="button" class="close-btn" data-close-categories>&times;</button>
+            </div>
+            <div class="cat-manager">
+                <form id="categoryForm" class="cat-add-row">
+                    <input type="text" name="nombre" placeholder="Nueva categoría" required>
+                    <button type="submit" class="btn btn-primary">Agregar</button>
+                </form>
+                <div id="categoryList" class="cat-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ PANEL: ANALÍTICAS ============ -->
+    <div class="overlay" id="analyticsOverlay">
+        <div class="panel panel--form">
+            <div class="panel-head">
+                <h3>Analíticas de esta sesión</h3>
+                <button type="button" class="close-btn" data-close-analytics>&times;</button>
+            </div>
+            <div class="analytics-body" id="analyticsBody"></div>
+        </div>
+    </div>
+
+    <!-- ============ CARRITO (panel lateral) ============ -->
+    <div class="overlay" id="cartOverlay">
+        <div class="panel panel--cart">
+            <div class="panel-head">
+                <h3>Tu carrito</h3>
+                <button type="button" class="close-btn" data-close-cart>&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total</span>
+                    <strong id="cartTotal">$0.00</strong>
+                </div>
+                <div class="cart-actions">
+                    <button type="button" class="btn btn-outline" id="shareCartBtn">Compartir carrito</button>
+                    <a href="#" target="_blank" class="btn btn-primary" id="whatsappCheckoutBtn"><i class="fab fa-whatsapp"></i> Pedir por WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ FAVORITOS (panel lateral) ============ -->
+    <div class="overlay" id="favOverlay">
+        <div class="panel panel--cart">
+            <div class="panel-head">
+                <h3>Tus favoritos</h3>
+                <button type="button" class="close-btn" data-close-fav>&times;</button>
+            </div>
+            <div class="cart-items" id="favItems"></div>
+        </div>
+    </div>
+
+    <!-- Aviso flotante (toast) -->
+    <div class="toast" id="toast"></div>
+
+    <script src="demo2.js"></script>
+</body>
+
+</html>
