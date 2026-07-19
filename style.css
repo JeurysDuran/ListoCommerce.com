@@ -760,6 +760,45 @@ strong {
 
 
 /* ==========================================================================
+   SECCIÓN DIVIDIDA (texto a un lado, video/imagen al otro)
+   En móvil queda uno debajo del otro; en desktop, lado a lado.
+   ========================================================================== */
+
+.split-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.split-text .section-title,
+.split-text .section-text {
+    max-width: none;
+}
+
+.split-text .section-text {
+    margin-bottom: 0;
+}
+
+.split-media {
+    width: 100%;
+}
+
+@media (min-width: 900px) {
+    .split-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+    }
+    .split-grid.split-reverse .split-text {
+        order: 2;
+    }
+    .split-grid.split-reverse .split-media {
+        order: 1;
+    }
+}
+
+
+/* ==========================================================================
    REVEAL AL HACER SCROLL
    ========================================================================== */
 
