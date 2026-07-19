@@ -1,0 +1,316 @@
+/* ==========================================================================
+   EXTRAS: Planes CTA, Modal de captura de leads, Aviso de cookies
+   (Archivo separado para no tocar style.css)
+   ========================================================================== */
+
+:root {
+    --extras-navy: #10254c;
+    --extras-orange: #f96b12;
+    --extras-bg-alt: #F1F0EC;
+    --extras-border: #E4E3DD;
+    --extras-text-muted: #6B6B66;
+    --extras-text: #17181C;
+}
+
+
+/* ---------- Hero: acciones + confianza ---------- */
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+}
+
+.hero-actions .btn-outline {
+    cursor: pointer;
+}
+
+.hero-trust {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    margin: 22px 0 0 0;
+    padding: 0;
+    font-size: 13.5px;
+    color: var(--extras-text-muted);
+}
+
+.hero-trust li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-trust li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--extras-orange);
+    flex-shrink: 0;
+}
+
+
+/* ---------- Sección de confianza (reemplaza testimonios falsos) ---------- */
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.trust-card {
+    background: #ffffff;
+    border: 1px solid var(--extras-border);
+    border-radius: 10px;
+    padding: 26px 22px;
+}
+
+.trust-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16.5px;
+    color: var(--extras-navy);
+    margin: 0 0 8px 0;
+}
+
+.trust-card p {
+    font-size: 14px;
+    color: var(--extras-text-muted);
+    line-height: 1.55;
+    margin: 0;
+}
+
+
+/* ---------- Sección Planes CTA ---------- */
+
+.planes-cta {
+    background: var(--extras-navy);
+}
+
+.planes-cta .tag {
+    color: var(--extras-orange);
+}
+
+.planes-cta .section-title,
+.planes-cta .section-text {
+    color: #ffffff;
+}
+
+.planes-cta .section-text {
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.planes-cta .btn-primary {
+    background: var(--extras-orange);
+    border-color: var(--extras-orange);
+    margin-top: 8px;
+}
+
+.planes-cta .btn-primary:hover {
+    background: #ffffff;
+    color: var(--extras-navy);
+    border-color: #ffffff;
+}
+
+
+/* ---------- Modal de captura de leads ---------- */
+
+.planes-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.planes-modal.is-open {
+    display: flex;
+}
+
+.planes-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(16, 37, 76, 0.55);
+    backdrop-filter: blur(2px);
+}
+
+.planes-modal-box {
+    position: relative;
+    background: #ffffff;
+    border-radius: 14px;
+    max-width: 440px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 32px 28px 28px;
+    box-shadow: 0 30px 60px rgba(16, 37, 76, 0.25);
+}
+
+.planes-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: var(--extras-bg-alt);
+    color: var(--extras-navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.planes-modal-close svg {
+    width: 16px;
+    height: 16px;
+}
+
+.planes-modal-box h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 21px;
+    color: var(--extras-navy);
+    margin: 0 0 8px 0;
+    padding-right: 24px;
+}
+
+.planes-modal-box > p {
+    font-size: 14px;
+    color: var(--extras-text-muted);
+    margin: 0 0 20px 0;
+    line-height: 1.5;
+}
+
+#planesForm {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#planesForm label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--extras-navy);
+}
+
+#planesForm .optional {
+    font-weight: 400;
+    color: var(--extras-text-muted);
+}
+
+#planesForm input,
+#planesForm select {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14.5px;
+    font-weight: 400;
+    color: var(--extras-text);
+    padding: 10px 12px;
+    border: 1px solid var(--extras-border);
+    border-radius: 8px;
+    background: #ffffff;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+#planesForm input:focus,
+#planesForm select:focus {
+    border-color: var(--extras-orange);
+}
+
+#planesForm input:invalid.touched,
+#planesForm select:invalid.touched {
+    border-color: #d32f2f;
+}
+
+.planes-form-note {
+    font-size: 12px;
+    color: var(--extras-text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.planes-modal-box .full-width {
+    width: 100%;
+    justify-content: center;
+    margin-top: 4px;
+}
+
+
+/* ---------- Aviso de cookies ---------- */
+
+.cookie-banner {
+    position: fixed;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    z-index: 999;
+    display: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 1px solid var(--extras-border);
+    border-radius: 12px;
+    padding: 18px 22px;
+    box-shadow: 0 12px 30px rgba(16, 37, 76, 0.15);
+}
+
+.cookie-banner.is-visible {
+    display: flex;
+}
+
+.cookie-banner p {
+    font-size: 13.5px;
+    color: var(--extras-text-muted);
+    margin: 0;
+    flex: 1 1 320px;
+    line-height: 1.5;
+}
+
+.cookie-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .planes-modal-box {
+        padding: 26px 20px 22px;
+    }
+
+    .cookie-banner {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        flex-direction: column;
+        align-items: stretch;
+        text-align: left;
+    }
+
+    .cookie-actions {
+        justify-content: flex-end;
+    }
+}

@@ -111,8 +111,81 @@
 /* Plan Destacado (Estilo Hostinger) */
 
 .pricing-card.popular {
+    background: #f96b12;
     border: 2px solid #f96b12;
-    box-shadow: 0 10px 30px rgba(249, 107, 18, 0.08);
+    box-shadow: 0 20px 40px rgba(249, 107, 18, 0.25);
+    transform: scale(1.03);
+}
+
+.pricing-card.popular:hover {
+    transform: scale(1.03) translateY(-4px);
+    box-shadow: 0 24px 48px rgba(249, 107, 18, 0.3);
+}
+
+.pricing-card.popular .card-header h3,
+.pricing-card.popular .currency,
+.pricing-card.popular .price {
+    color: #ffffff;
+}
+
+.pricing-card.popular .card-desc,
+.pricing-card.popular .period {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.pricing-card.popular .features-list {
+    border-top-color: rgba(255, 255, 255, 0.25);
+}
+
+.pricing-card.popular .features-list li {
+    color: #ffffff;
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+.pricing-card.popular .features-list li .icon.check {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.pricing-card.popular .setup-price.setup-free {
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+}
+
+.pricing-card.popular .setup-price.setup-free svg {
+    color: #ffffff;
+}
+
+.pricing-card.popular .card-condition {
+    color: rgba(255, 255, 255, 0.85);
+    border-top-color: rgba(255, 255, 255, 0.25);
+}
+
+.pricing-card.popular .card-condition svg {
+    color: #ffffff;
+}
+
+.pricing-card.popular .ribbon {
+    background: #10254c;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(16, 37, 76, 0.3);
+}
+
+.pricing-card.popular .btn-primary {
+    background: #ffffff;
+    color: #f96b12;
+    border-color: #ffffff;
+}
+
+.pricing-card.popular .btn-primary:hover {
+    background: #10254c;
+    color: #ffffff;
+    border-color: #10254c;
+}
+
+.pricing-card.popular strong,
+.pricing-card.popular b {
+    color: #ffffff;
 }
 
 .ribbon {
@@ -263,4 +336,420 @@
     color: #6B6B66;
     margin: 0;
     line-height: 1.5;
+}
+
+
+/* ==========================================================================
+   ICONOS (SVG en lugar de emojis)
+   ========================================================================== */
+
+.icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.icon svg,
+svg.icon {
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+
+.header-flex .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.btn .icon svg {
+    width: 14px;
+    height: 14px;
+}
+
+.features-list .icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.features-list .icon.check {
+    background: rgba(46, 125, 50, 0.1);
+    color: #2e7d32;
+}
+
+.features-list .icon.check svg {
+    width: 12px;
+    height: 12px;
+}
+
+.features-list .icon.cross {
+    background: rgba(211, 47, 47, 0.08);
+    color: #A1A19A;
+}
+
+.features-list .icon.cross svg {
+    width: 11px;
+    height: 11px;
+}
+
+.features-list li.disabled .icon.cross {
+    color: #A1A19A;
+}
+
+
+/* Ya no se usan los textos ✓ / ✕, se reemplazan por .icon */
+
+.check,
+.cross {
+    color: inherit;
+}
+
+
+/* ==========================================================================
+   NOTA DE INFRAESTRUCTURA (TRANSVERSAL)
+   ========================================================================== */
+
+.infra-note-section {
+    padding: 0 0 40px;
+}
+
+.infra-note {
+    display: flex;
+    gap: 20px;
+    background: #ffffff;
+    border: 1px solid #E4E3DD;
+    border-left: 4px solid #10254c;
+    border-radius: 10px;
+    padding: 24px 28px;
+}
+
+.infra-note-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(16, 37, 76, 0.08);
+    color: #10254c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infra-note-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.infra-note-content h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    color: #10254c;
+    margin: 0 0 8px 0;
+}
+
+.infra-note-content p {
+    font-size: 14.5px;
+    color: #6B6B66;
+    line-height: 1.6;
+    margin: 0 0 14px 0;
+}
+
+.infra-note-tip {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: rgba(249, 107, 18, 0.06);
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: #10254c;
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+
+.infra-note-tip svg {
+    width: 18px;
+    height: 18px;
+    color: #f96b12;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+
+/* ==========================================================================
+   PRECIO DE CONFIGURACIÓN (SETUP)
+   ========================================================================== */
+
+.setup-price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.4;
+    color: #10254c;
+    background: #F1F0EC;
+    border: 1px solid #E4E3DD;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 24px;
+}
+
+.setup-price strong {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.setup-price svg {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    color: #f96b12;
+}
+
+.setup-price.setup-free {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.setup-price.setup-free strong {
+    background: #10254c;
+    color: #ffffff;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+}
+
+.setup-old-price {
+    text-decoration: line-through;
+    opacity: 0.7;
+    margin-right: 2px;
+}
+
+.setup-price.setup-free svg {
+    color: #ffffff;
+}
+
+.pricing-card .setup-price {
+    margin-top: -4px;
+}
+
+
+/* Ajuste del ribbon con icono */
+
+.ribbon {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ribbon svg {
+    width: 12px;
+    height: 12px;
+}
+
+
+/* Nota de condición dentro de la tarjeta popular */
+
+.card-condition {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12.5px;
+    color: #6B6B66;
+    line-height: 1.5;
+    margin: -12px 0 20px 0;
+    padding-top: 16px;
+    border-top: 1px dashed #E4E3DD;
+}
+
+.card-condition svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    color: #f96b12;
+    margin-top: 1px;
+}
+
+
+/* ==========================================================================
+   TABLA COMPARATIVA
+   ========================================================================== */
+
+.comparison-section {
+    padding: 20px 0 80px;
+}
+
+.comparison-table-wrap {
+    overflow-x: auto;
+    border: 1px solid #E4E3DD;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+    font-size: 14px;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 16px 20px;
+    text-align: center;
+    border-bottom: 1px solid #E4E3DD;
+    color: #17181C;
+}
+
+.comparison-table thead th {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #10254c;
+    font-size: 15px;
+    background: #F1F0EC;
+    white-space: nowrap;
+}
+
+.comparison-table th.col-feature,
+.comparison-table td.col-feature {
+    text-align: left;
+    color: #10254c;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.comparison-table th.col-popular {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #f96b12;
+}
+
+.comparison-table th.col-popular svg {
+    width: 14px;
+    height: 14px;
+}
+
+.comparison-table td.col-popular {
+    background: rgba(249, 107, 18, 0.05);
+    font-weight: 600;
+    color: #10254c;
+}
+
+.comparison-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table .icon.check {
+    margin: 0 auto;
+}
+
+.comparison-table td.muted {
+    color: #A1A19A;
+}
+
+
+/* ==========================================================================
+   ICONOS DE REQUISITOS (reemplazan los números 01/02/03)
+   ========================================================================== */
+
+.req-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(249, 107, 18, 0.1);
+    color: #f96b12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.req-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 640px) {
+    .infra-note {
+        flex-direction: column;
+    }
+    .pricing-card.popular {
+        transform: none;
+    }
+    .pricing-card.popular:hover {
+        transform: translateY(-4px);
+    }
+    /* Tarjetas un poco más compactas en móvil */
+    .pricing-card {
+        padding: 26px 22px;
+        border-radius: 10px;
+    }
+    .card-header h3 {
+        font-size: 21px;
+    }
+    .card-desc {
+        font-size: 13.5px;
+        min-height: 0;
+        margin-bottom: 18px;
+    }
+    .price {
+        font-size: 44px;
+    }
+    .currency {
+        font-size: 20px;
+    }
+    .features-list li {
+        padding: 10px 0;
+        font-size: 13.5px;
+    }
+    .setup-price {
+        font-size: 12.5px;
+        padding: 8px 12px;
+    }
+    .setup-price strong {
+        font-size: 13.5px;
+    }
+    /* Tabla comparativa: más compacta y con "peek" del siguiente plan para insinuar el deslizamiento */
+    .comparison-table-wrap {
+        position: relative;
+        border-radius: 10px;
+    }
+    .comparison-table-wrap::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 28px;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.08));
+        pointer-events: none;
+    }
+    .comparison-table {
+        min-width: 460px;
+        font-size: 12px;
+    }
+    .comparison-table th,
+    .comparison-table td {
+        padding: 10px 12px;
+    }
+    .comparison-table th.col-feature,
+    .comparison-table td.col-feature {
+        white-space: normal;
+        min-width: 110px;
+    }
+    .comparison-table thead th {
+        font-size: 12.5px;
+    }
 }

@@ -12,9 +12,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 
     <!-- LÍNEA CORREGIDA (Suponiendo que tu logo se llama logo2.png y está en la misma carpeta) -->
-    <link rel="icon" type="image/png" href="img/logopg.jpeg">
+    <link rel="icon" type="image/png" href="img/logo2.png">
 
     <link rel="stylesheet" href="style.css">
+    <!-- Estilos nuevos (planes, formulario de contacto y aviso de cookies), usa las mismas variables de style.css -->
+    <link rel="stylesheet" href="extras.css">
 </head>
 
 <body>
@@ -24,12 +26,13 @@
         <div class="header-inner">
 
             <a href="#inicio" class="brand">
-                <img src="listocommercelogo2.png" alt="Logo" class="brand-logo">
+                <img src="img/logo3.png" alt="Logo" class="brand-logo">
             </a>
 
             <nav class="nav-desktop" aria-label="Navegación principal">
                 <a href="#inicio">Inicio</a>
                 <a href="#producto">Producto</a>
+                <a href="precios.html">Planes</a>
                 <a href="#clientes">Clientes</a>
                 <a href="#informacion">Información</a>
                 <a href="#contacto">Contacto</a>
@@ -45,6 +48,7 @@
         <nav class="nav-mobile" id="navMobile" aria-label="Navegación móvil">
             <a href="#inicio">Inicio</a>
             <a href="#producto">Producto</a>
+            <a href="#planes">Planes</a>
             <a href="#clientes">Clientes</a>
             <a href="#informacion">Información</a>
             <a href="#contacto">Contacto</a>
@@ -56,9 +60,27 @@
         </nav>
     </header>
 
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="inicio">
+        <div class="hero-inner">
+            <p class="eyebrow"><span class="eyebrow-dot"></span>Catálogo en línea para negocios</p>
+            <h1 class="hero-title">Tu catálogo,<br>siempre <strong>completo</strong>.</h1>
+            <p class="hero-subtitle">La plataforma que muestra cada producto de tu negocio en internet, para que ningún cliente se pierda buscando entre publicaciones de Instagram.</p>
+            <a href="#producto" class="btn btni btn-primary">Ver página</a>
+        </div>
+        <div class="hero-grid" aria-hidden="true">
+            <div class="hero-cell"></div>
+            <div class="hero-cell"></div>
+            <div class="hero-cell"></div>
+            <div class="hero-cell"></div>
+            <div class="hero-cell"></div>
+            <div class="hero-cell"></div>
+        </div>
+    </section>
+
     <section class="section demo" id="producto">
         <div class="section-inner">
-            <p class="tag">SKU · 003 · EL PRODUCTO</p>
             <h2 class="section-title">Pruébalo tú mismo.</h2>
             <p class="section-text">Hemos desarrollado dos demos completas, con productos ya pre-cargados, para que veas cómo se siente administrar y comprar dentro de la plataforma — sin afectar ningún dato real. Intentalo tú mismo y vive la experiencia de tu propia tienda
                 en línea.</p>
@@ -105,28 +127,10 @@
         </div>
     </section>
 
-    <!-- ============ HERO ============ -->
-    <section class="hero" id="inicio">
-        <div class="hero-inner">
-            <p class="eyebrow"><span class="eyebrow-dot"></span>Catálogo en línea para negocios</p>
-            <h1 class="hero-title">Tu catálogo,<br>siempre <strong>completo</strong>.</h1>
-            <p class="hero-subtitle">La plataforma que muestra cada producto de tu negocio en internet, para que ningún cliente se pierda buscando entre publicaciones de Instagram.</p>
-            <a href="#producto" class="btn btni btn-primary">Ver página</a>
-        </div>
-        <div class="hero-grid" aria-hidden="true">
-            <div class="hero-cell"></div>
-            <div class="hero-cell"></div>
-            <div class="hero-cell"></div>
-            <div class="hero-cell"></div>
-            <div class="hero-cell"></div>
-            <div class="hero-cell"></div>
-        </div>
-    </section>
 
     <!-- ============ PROBLEMA ============ -->
     <section class="section" id="problema">
         <div class="section-inner">
-            <p class="tag">SKU · 001 · EL PROBLEMA</p>
             <h2 class="section-title">Buscar un producto no debería sentirse como una búsqueda.</h2>
             <p class="section-text">Instagram no fue pensado para ser una tienda. Los productos se pierden entre publicaciones, historias antiguas y mensajes sin responder — y con ellos, se pierden clientes.</p>
 
@@ -162,7 +166,6 @@
     <!-- ============ SOLUCIÓN ============ -->
     <section class="section section--alt" id="solucion">
         <div class="section-inner">
-            <p class="tag">SKU · 002 · LA SOLUCIÓN</p>
             <h2 class="section-title">Un catálogo real, hecho para vender.</h2>
             <p class="section-text">Cada producto, con su precio, sus tallas, sus colores y su stock, siempre visible y siempre a un clic de distancia — sin importar cuánto crezca tu inventario.</p>
 
@@ -202,7 +205,6 @@
     <!-- ============ CLIENTES ============ -->
     <section class="section section--alt" id="clientes">
         <div class="section-inner">
-            <p class="tag">SKU · 004 · CLIENTES</p>
             <h2 class="section-title">Negocios que ya dejaron de vender por Instagram.</h2>
 
             <div class="carousel" data-carousel>
@@ -234,7 +236,6 @@
     <!-- ============ INFORMACIÓN ============ -->
     <section class="section" id="informacion">
         <div class="section-inner">
-            <p class="tag">SKU · 005 · INFORMACIÓN</p>
             <h2 class="section-title">Todo lo que necesita tu tienda, en un solo lugar.</h2>
 
             <div class="info-grid">
@@ -267,7 +268,7 @@
     <!-- ============ CONTACTO ============ -->
     <section class="section section--alt contact" id="contacto">
         <div class="section-inner">
-            <p class="tag">SKU · 006 · CONTACTO</p>
+            <p class="tag">CONTACTO</p>
             <h2 class="section-title">Hablemos de tu tienda.</h2>
             <p class="section-text">Escríbeme directo y te muestro cómo se vería tu catálogo funcionando.</p>
 
@@ -290,7 +291,7 @@
     <!-- ============ Owner ============ -->
     <section class="section section--alt contact" id="contacto">
         <div class="section-inner">
-            <p class="tag">SKU · 007 · OWNER</p>
+            <p class="tag">OWNER</p>
             <h2 class="section-title">Jeurys Durán</h2>
             <p class="section-text">He desarrollado la plataforma que muestra cada producto de tu negocio en internet, para que ningún cliente se pierda buscando entre publicaciones de Instagram.</p>
 
